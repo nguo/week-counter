@@ -216,6 +216,7 @@ export default function Home() {
                     <Calendar
                       mode="single"
                       selected={startDate}
+                      defaultMonth={startDate}
                       onSelect={handleStartDateCalendarSelect}
                       initialFocus
                     />
@@ -258,6 +259,7 @@ export default function Home() {
                     <Calendar
                       mode="single"
                       selected={endDate}
+                      defaultMonth={endDate}
                       onSelect={handleEndDateCalendarSelect}
                       initialFocus
                     />
