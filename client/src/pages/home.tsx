@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { format, differenceInWeeks, differenceInDays, parse, isValid } from "date-fns";
-import { Calendar as CalendarIcon, Timer, History } from "lucide-react";
+import { Calendar as CalendarIcon } from "lucide-react";
 import { Calendar } from "@/components/ui/calendar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
@@ -166,9 +166,6 @@ export default function Home() {
           <h1 data-testid="text-title" className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
             Week Calculator
           </h1>
-          <p className="text-muted-foreground text-lg text-balance">
-            Calculate the weeks between two dates
-          </p>
         </div>
 
         {weeks !== null && !error && (
@@ -184,9 +181,6 @@ export default function Home() {
                     weeks
                   </span>
                 </div>
-              </div>
-              <div className="h-12 w-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
-                <History className="w-6 h-6 text-primary" />
               </div>
             </div>
             <div className="text-sm text-muted-foreground mt-3 pt-3 border-t border-accent/50 space-y-1">
