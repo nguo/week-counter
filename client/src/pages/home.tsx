@@ -163,9 +163,6 @@ export default function Home() {
 
       <div className="max-w-md w-full relative z-10">
         <div className="text-center mb-8 space-y-2">
-          <div className="inline-flex items-center justify-center p-3 bg-white dark:bg-card rounded-2xl shadow-sm mb-4 border border-border/50">
-            <Timer className="w-8 h-8 text-primary" />
-          </div>
           <h1 data-testid="text-title" className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
             Week Calculator
           </h1>
