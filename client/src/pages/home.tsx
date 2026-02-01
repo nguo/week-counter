@@ -180,6 +180,43 @@ export default function Home() {
           </CardHeader>
           
           <CardContent className="space-y-6">
+            {weeks !== null && !error && (
+              <div className="bg-accent/30 rounded-2xl border border-accent/50 p-6">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-medium text-muted-foreground mb-1 uppercase tracking-wider">Time Elapsed</p>
+                    <div className="flex items-baseline gap-2">
+                      <span data-testid="text-weeks-result" className="text-5xl font-bold text-primary font-mono tracking-tighter">
+                        {weeks}
+                      </span>
+                      <span className="text-lg font-medium text-muted-foreground">
+                        weeks
+                      </span>
+                    </div>
+                  </div>
+                  <div className="h-12 w-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
+                    <History className="w-6 h-6 text-primary" />
+                  </div>
+                </div>
+                <div className="text-sm text-muted-foreground mt-3 pt-3 border-t border-accent/50 space-y-1">
+                  <p data-testid="text-date-range">
+                    From {startDate && format(startDate, "MMMM d, yyyy")} to {endDate ? format(endDate, "MMMM d, yyyy") : format(new Date(), "MMMM d, yyyy")}
+                  </p>
+                  {totalDays !== null && (
+                    <p data-testid="text-total-days" className="text-xs">
+                      {totalDays} total days{extraDays > 0 && ` (${extraDays} extra day${extraDays > 1 ? 's' : ''})`}
+                    </p>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {error && (
+              <div data-testid="text-error" className="bg-destructive/10 text-destructive px-4 py-3 rounded-lg text-sm">
+                {error}
+              </div>
+            )}
+
             <div className="space-y-2">
               <Label htmlFor="startDateText" className="text-sm font-medium">
                 Start Date
@@ -264,43 +301,6 @@ export default function Home() {
                 </Popover>
               </div>
             </div>
-
-            {error && (
-              <div data-testid="text-error" className="bg-destructive/10 text-destructive px-4 py-3 rounded-lg text-sm">
-                {error}
-              </div>
-            )}
-
-            {weeks !== null && !error && (
-              <div className="bg-accent/30 rounded-2xl border border-accent/50 p-6">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-medium text-muted-foreground mb-1 uppercase tracking-wider">Time Elapsed</p>
-                    <div className="flex items-baseline gap-2">
-                      <span data-testid="text-weeks-result" className="text-5xl font-bold text-primary font-mono tracking-tighter">
-                        {weeks}
-                      </span>
-                      <span className="text-lg font-medium text-muted-foreground">
-                        weeks
-                      </span>
-                    </div>
-                  </div>
-                  <div className="h-12 w-12 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
-                    <History className="w-6 h-6 text-primary" />
-                  </div>
-                </div>
-                <div className="text-sm text-muted-foreground mt-3 pt-3 border-t border-accent/50 space-y-1">
-                  <p data-testid="text-date-range">
-                    From {startDate && format(startDate, "MMMM d, yyyy")} to {endDate ? format(endDate, "MMMM d, yyyy") : format(new Date(), "MMMM d, yyyy")}
-                  </p>
-                  {totalDays !== null && (
-                    <p data-testid="text-total-days" className="text-xs">
-                      {totalDays} total days{extraDays > 0 && ` (${extraDays} extra day${extraDays > 1 ? 's' : ''})`}
-                    </p>
-                  )}
-                </div>
-              </div>
-            )}
           </CardContent>
         </Card>
       </div>
